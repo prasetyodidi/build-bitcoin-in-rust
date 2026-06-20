@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
-members = ["hello_world",
+members = [
+    "hello_world",
     "lib",
     "miner",
     "node",
