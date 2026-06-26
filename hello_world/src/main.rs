@@ -196,6 +196,28 @@ fn main() {
         println!("{:?}", broken.pop_first_char_as_string());
     }
 
+    if let Some(val) = Some(95) {
+        println!("Value: {}", val);
+    } 
+    let (first, second) = (1, 2);
+    println!("First: {}, Second: {}", first, second);
+
+    let a_pair: (Option<i32>, Result<(), MyErrorEnum>) = (
+        Some(45),
+        Err(MyErrorEnum::Other(String::from("Database connection lost")))
+    );
+    if let (Some(45), Err(MyErrorEnum::Other(err))) = a_pair {
+        println!("error message: {}", err);
+    } else {
+        println!("Doesnt match!");
+    }
+
+}
+
+enum MyErrorEnum {
+    TimeOut,
+    NotFound,
+    Other(String)
 }
 
 // in the business, we call this foreshadowing ;-)
